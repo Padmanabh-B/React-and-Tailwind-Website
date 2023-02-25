@@ -15,9 +15,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
-      <h1 className="text-4xl text-center border-2 bg-[#0d0d0d] font-bold text-white p-4">
-        Hello Bro
-      </h1>
+      
     </div>
   );
 }
