@@ -8,7 +8,7 @@ const Intro = () => {
           The Best <br /><b className="text-secondary">Mareting</b>
         </h1>
         <h1 className="text-4xl font-medium ">Does't feel like marketing</h1>
-        <button className="px-16 py-5 text-xl text-white bg-secondary max-w-max">Get Started</button>
+        <button className="px-16 py-5 text-xl text-white bg-secondary max-w-max hover:bg-primary">Get Started</button>
       </div>
       <div className="p-10">
         <lottie-player
