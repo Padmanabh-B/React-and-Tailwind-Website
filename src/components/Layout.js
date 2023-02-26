@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       {/* Content  */}
-      <div className="pb-44">{children}</div>
+      <div className="pb-44 overflow-x-hidden">{children}</div>
       {/* Footer */}
       <div className="fixed left-0 right-0 bottom-5">
         <div className="flex justify-center ">
