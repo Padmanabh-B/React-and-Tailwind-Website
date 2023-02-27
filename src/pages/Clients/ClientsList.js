@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Numbers from "./Numbers";
 
 const ClientsList = () => {
   const [selectedClientIndex, setSelectedClientIndex] = useState(0);
@@ -73,29 +74,45 @@ const ClientsList = () => {
             onClick={previous}
           ></i>
         )}
-        <div className="bg-white shadow-lg p-5 w-[500px] border h-[400px]">
-          <div className="flex space-x-10 items-center justify-between ">
-            <h1 className="text-primary font-semibold text-2xl">
-              {clients[selectedClientIndex].name}
-            </h1>
-            <img
-              src={clients[selectedClientIndex].logo}
-              alt=""
-              className="h-32 w-32"
-            />
-          </div>
-          <p className="text-gray-600 text-md mt-10">
-            {clients[selectedClientIndex].description}
-          </p>
+        <div className="grid grid-cols-3 gap-10">
+          {[
+            clients[selectedClientIndex],
+            clients[selectedClientIndex + 1],
+            clients[selectedClientIndex + 2],
+          ].map((item) => (
+            <div className="bg-white shadow-lg p-5 w-[400px] border h-[350px] rounded-xl">
+              <div className="flex space-x-10 items-center justify-between ">
+                <img src={item.logo} alt="" className="h-32 w-32" />
+                <h1 className="text-primary font-semibold text-2xl">
+                  {item.name}
+                </h1>
+              </div>
+              <p className="text-gray-600 text-md mt-10">{item.description}</p>
+            </div>
+          ))}
         </div>
 
-        {selectedClientIndex !== clients.length - 1 && (
+        {selectedClientIndex !== 4 && (
           <i
             className=" text-4xl text-gray-600  cursor-pointer ri-arrow-right-line "
             onClick={next}
           ></i>
         )}
       </div>
+
+      <div className="flex justify-center mt-10 ">
+        <div className="flex  space-x-2">
+          {[1, 2, 3, 4].map((item, index) => (
+            <div
+              onClick={() => setSelectedClientIndex(index)}
+              className={`bg-gray-300 h-4 w-4 rounded-full space-x-2 cursor-pointer hover:scale-105 transition transform duration-300 ${
+                selectedClientIndex === index && "border-2 border-secondary h-5 w-5"
+              }`}
+            ></div>
+          ))}
+        </div>
+      </div>
+      <Numbers />
     </div>
   );
 };
